@@ -42,4 +42,4 @@ Simply add this require statement to your spec_helper:
 require 'spree_cpf/factories'
 ```
 
-Copyright (c) 2013 [name of extension creator], released under the New BSD License
+Copyright (c) 2013 Tiago Amaro, released under the MIT License
