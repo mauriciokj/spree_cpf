@@ -1,7 +1,12 @@
 SpreeCpf
 ========
 
-Introduction goes here.
+[![Build Status](https://travis-ci.org/tiagoamaro/spree_cpf.png?branch=master)](https://travis-ci.org/tiagoamaro/spree_cpf)
+[![Code Climate](https://codeclimate.com/github/tiagoamaro/spree_cpf.png)](https://codeclimate.com/github/tiagoamaro/spree_cpf)
+[![Coverage Status](https://coveralls.io/repos/tiagoamaro/spree_cpf/badge.png)](https://coveralls.io/r/tiagoamaro/spree_cpf)
+[![Dependency Status](https://gemnasium.com/tiagoamaro/spree_cpf.png)](https://gemnasium.com/tiagoamaro/spree_cpf)
+
+Spree Extension that adds CPF field in an order
 
 Installation
 ------------
