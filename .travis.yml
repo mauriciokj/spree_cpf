@@ -18,4 +18,4 @@ env:
   - DB=postgres
 branches:
   only:
-    - master
+    - 2-1-stable
