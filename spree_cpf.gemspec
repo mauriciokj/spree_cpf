@@ -9,7 +9,8 @@ Gem::Specification.new do |s|
 
   s.author    = 'Tiago Amaro'
   s.email     = 'tiagocis@gmail.com'
-  s.homepage  = 'http://www.tiagoamaro.com.br'
+  s.homepage  = 'https://github.com/tiagoamaro/spree_cpf'
+  s.license   = 'MIT'
 
   s.files       = `git ls-files`.split("\n")
   s.test_files  = `git ls-files -- {test,spec,features}/*`.split("\n")
@@ -24,6 +25,9 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'factory_girl', '~> 4.2'
   s.add_development_dependency 'ffaker'
   s.add_development_dependency 'rspec-rails',  '~> 2.13'
+  s.add_development_dependency 'poltergeist', '~> 1.4.1'
+  s.add_development_dependency 'pry', '~> 0.9.12.2'
+  s.add_development_dependency 'fuubar', '~> 1.2.1'
   s.add_development_dependency 'sass-rails'
   s.add_development_dependency 'selenium-webdriver'
   s.add_development_dependency 'simplecov'
