@@ -4,7 +4,7 @@ describe 'CpfValidator' do
 
   before(:each) do
     @validator = CpfValidator.new({attributes: {}})
-    @mock = mock('model')
+    @mock = double('model')
     @errors = double('model errors')
     @mock.stub(:errors).and_return(@errors)
   end
