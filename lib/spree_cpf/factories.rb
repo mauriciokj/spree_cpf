@@ -20,8 +20,6 @@ FactoryGirl.define do
     country do |address|
       if address.state
         address.state.country
-      else
-        address.association(:country)
       end
     end
   end
