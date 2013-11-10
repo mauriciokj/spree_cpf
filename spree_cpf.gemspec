@@ -29,8 +29,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'pry', '~> 0.9.12.2'
   s.add_development_dependency 'fuubar', '~> 1.2.1'
   s.add_development_dependency 'sass-rails'
-  s.add_development_dependency 'selenium-webdriver'
   s.add_development_dependency 'simplecov'
   s.add_development_dependency 'coveralls'
-  s.add_development_dependency 'sqlite3'
 end

@@ -37,13 +37,13 @@ describe "Checkout" do
     end
   end
 
-  def fill_in_address(cpf: '036.142.049-87')
+  def fill_in_address
     address = "order_bill_address_attributes"
     fill_in "#{address}_firstname", :with => "Ryan"
     fill_in "#{address}_lastname", :with => "Bigg"
     fill_in "#{address}_address1", :with => "143 Swan Street"
     fill_in "#{address}_city", :with => "Richmond"
-    fill_in "#{address}_cpf", :with => cpf
+    fill_in "#{address}_cpf", :with => "036.142.049-87"
     select "United States of America", :from => "#{address}_country_id"
     select "Alabama", :from => "#{address}_state_id"
     fill_in "#{address}_zipcode", :with => "12345"
