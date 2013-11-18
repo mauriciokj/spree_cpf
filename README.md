@@ -1,6 +1,7 @@
 SpreeCpf
 ========
 
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/tiagoamaro/spree_cpf/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 [![Build Status](https://travis-ci.org/tiagoamaro/spree_cpf.png?branch=master)](https://travis-ci.org/tiagoamaro/spree_cpf)
 [![Code Climate](https://codeclimate.com/github/tiagoamaro/spree_cpf.png)](https://codeclimate.com/github/tiagoamaro/spree_cpf)
 [![Coverage Status](https://coveralls.io/repos/tiagoamaro/spree_cpf/badge.png)](https://coveralls.io/r/tiagoamaro/spree_cpf)
@@ -43,7 +44,3 @@ require 'spree_cpf/factories'
 ```
 
 Copyright (c) 2013 Tiago Amaro, released under the MIT License
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/tiagoamaro/spree_cpf/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
