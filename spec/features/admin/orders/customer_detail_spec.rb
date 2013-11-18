@@ -13,10 +13,27 @@ describe "Customer Details" do
   end
 
   context "editing an order", :js => true do
-    it "should have cpf field on shipping and billing address" do
-      click_link "Customer Details"
-      page.should have_selector("#order_bill_address_attributes_cpf")
-      page.should have_selector("#order_ship_address_attributes_cpf")
+    context "ship address has cpf" do
+      before do
+        Spree::Config[:ship_address_has_cpf] = true
+      end
+
+      it "should have cpf field on shipping and billing address" do
+        click_link "Customer Details"
+        page.should have_selector("#order_bill_address_attributes_cpf")
+        page.should have_selector("#order_ship_address_attributes_cpf")
+      end
+    end
+
+    context "ship address does not have cpf" do
+      before do
+        Spree::Config[:ship_address_has_cpf] = false
+      end
+
+      it "should not have cpf field on shipping address" do
+        click_link "Customer Details"
+        page.should_not have_selector("#order_ship_address_attributes_cpf")
+      end
     end
   end
 end

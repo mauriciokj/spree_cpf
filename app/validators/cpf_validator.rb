@@ -1,9 +1,12 @@
 class CpfValidator < ActiveModel::Validator
   NIL_CPFS = %w(12345678909 11111111111 22222222222 33333333333 44444444444 55555555555 66666666666 77777777777 88888888888 99999999999 00000000000)
 
-  def validate(record)
-    tested_cpf = record.try(:cpf)
-    record.errors.add(:cpf, :invalid) if tested_cpf.nil? || !valid_cpf?(tested_cpf)
+  def validate(order)
+    ship_address_cpf = order.ship_address.try(:cpf)
+    bill_address_cpf = order.bill_address.try(:cpf)
+
+    order.errors.add(:ship_address, :cpf_invalid) if ship_address_cpf && !valid_cpf?(ship_address_cpf) && Spree::Config[:ship_address_has_cpf]
+    order.errors.add(:bill_address, :cpf_invalid) if bill_address_cpf && !valid_cpf?(bill_address_cpf)
   end
 
   private

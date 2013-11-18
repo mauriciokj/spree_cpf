@@ -3,31 +3,30 @@ require 'spec_helper'
 describe 'CpfValidator' do
 
   before(:each) do
+    Spree::Config[:ship_address_has_cpf] = true
     @validator = CpfValidator.new({attributes: {}})
-    @mock = double('model')
-    @errors = double('model errors')
-    @mock.stub(:errors).and_return(@errors)
+    @order = double('order')
+    @order_errors = double('order errors')
+    @order.stub(:errors).and_return(@order_errors)
   end
 
   describe 'invalid cpfs' do
     it 'invalidates a invalid cpf format' do
-      @mock.stub(:cpf) { 'Invalid CPF :)' }
-      @errors.should_receive(:add)
-      @validator.validate(@mock)
+      @order.stub_chain(:ship_address, :cpf) { 'Invalid CPF :)' }
+      @order.stub_chain(:bill_address, :cpf) { 'Invalid CPF :)' }
+      @order_errors.should_receive(:add).with(:bill_address, :cpf_invalid)
+      @order_errors.should_receive(:add).with(:ship_address, :cpf_invalid)
+      @validator.validate(@order)
     end
 
     it 'invalidates nil cpf values' do
-      @errors.should_receive(:add).exactly(CpfValidator::NIL_CPFS.length)
+      @order_errors.should_receive(:add).with(:ship_address, :cpf_invalid).exactly(CpfValidator::NIL_CPFS.length)
+      @order_errors.should_receive(:add).with(:bill_address, :cpf_invalid).exactly(CpfValidator::NIL_CPFS.length)
       CpfValidator::NIL_CPFS.each do |cpf|
-        @mock.stub(:cpf) { cpf }
-        @validator.validate(@mock)
+        @order.stub_chain(:ship_address, :cpf) { cpf }
+        @order.stub_chain(:bill_address, :cpf) { cpf }
+        @validator.validate(@order)
       end
-    end
-
-    it 'invalidates nil' do
-      @mock.stub(:cpf) { nil }
-      @errors.should_receive(:add)
-      @validator.validate(@mock)
     end
   end
 
@@ -35,10 +34,12 @@ describe 'CpfValidator' do
     let(:valid_cpfs) { ['236.371.868-29', '468.548.242-57', '387.366.318-09'] }
 
     it 'returns true to valid cpfs' do
-      @errors.should_not_receive(:add)
+      @order_errors.should_not_receive(:add)
+      @order_errors.should_not_receive(:add)
       valid_cpfs.each do |cpf|
-        @mock.stub(:cpf) { cpf }
-        @validator.validate(@mock)
+        @order.stub_chain(:ship_address, :cpf) { cpf }
+        @order.stub_chain(:bill_address, :cpf) { cpf }
+        @validator.validate(@order)
       end
     end
   end

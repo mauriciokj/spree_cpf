@@ -1,5 +1,7 @@
 <!-- insert_before "erb[silent]:contains('Spree::Config[:company]')" -->
-<div class="field <%= "#{type}-row" %>">
-  <%= f.label :cpf, Spree.t(:cpf) %>
-  <%= f.text_field :cpf, :class => 'fullwidth' %>
-</div>
+<% if type == 'billing' || Spree::Config[:ship_address_has_cpf] %>
+  <div class="field <%= "#{type}-row" %>">
+    <%= f.label :cpf, Spree.t(:cpf) %>
+    <%= f.text_field :cpf, :class => 'fullwidth' %>
+  </div>
+<% end %>

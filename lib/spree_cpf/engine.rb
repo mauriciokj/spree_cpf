@@ -11,6 +11,12 @@ module SpreeCpf
       g.test_framework :rspec
     end
 
+    initializer "spree.spree_cpf.preferences", :before => :load_config_initializers do |app|
+      Spree::AppConfiguration.class_eval do
+        preference :ship_address_has_cpf, :boolean, default: false
+      end
+    end
+
     def self.activate
       Dir.glob(File.join(File.dirname(__FILE__), '../../app/**/*_decorator*.rb')) do |c|
         Rails.configuration.cache_classes ? require(c) : load(c)

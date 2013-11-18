@@ -46,6 +46,7 @@ Capybara.default_wait_time = 10
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   config.include Spree::TestingSupport::UrlHelpers
+  config.include Spree::TestingSupport::Preferences
 
   config.mock_with :rspec
   config.color = true

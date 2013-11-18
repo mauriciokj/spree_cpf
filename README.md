@@ -23,6 +23,14 @@ bundle
 bundle exec rails g spree_cpf:install
 ```
 
+Set the preference in an initializer such as config/initializers/spree.rb:
+
+```ruby
+Spree.config do |config|
+  config.add_cpf_to_ship_address = true # Default is false
+end
+```
+
 Testing
 -------
 

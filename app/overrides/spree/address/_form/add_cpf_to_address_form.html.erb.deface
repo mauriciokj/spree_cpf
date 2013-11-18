@@ -1,5 +1,8 @@
 <!-- insert_before "erb[silent]:contains('Spree::Config[:company]')" -->
-<p class="field" id=<%="#{address_id}cpf" %>>
-  <%= form.label :cpf, Spree.t(:cpf) %><span class="required">*</span><br />
-  <%= form.text_field :cpf, :class => 'required' %>
-</p>
+<% if address_type == 'billing' || Spree::Config[:ship_address_has_cpf] %>
+  <p class="field" id=<%="#{address_id}cpf" %>>
+    <%= form.label :cpf, Spree.t(:cpf) %>
+    <span class="required">*</span> <br />
+    <%= form.text_field :cpf, :class => 'required' %>
+  </p>
+<% end %>
