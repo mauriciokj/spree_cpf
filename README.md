@@ -27,7 +27,7 @@ Set the preference in an initializer such as config/initializers/spree.rb:
 
 ```ruby
 Spree.config do |config|
-  config.add_cpf_to_ship_address = true # Default is false
+  config.ship_address_has_cpf = true # Default is false
 end
 ```
 
