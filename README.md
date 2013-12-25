@@ -1,6 +1,7 @@
 SpreeCpf
 ========
 
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/tiagoamaro/spree_cpf/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 [![Build Status](https://travis-ci.org/tiagoamaro/spree_cpf.png?branch=2-1-stable)](https://travis-ci.org/tiagoamaro/spree_cpf)
 [![Coverage Status](https://coveralls.io/repos/tiagoamaro/spree_cpf/badge.png?branch=2-1-stable)](https://coveralls.io/r/tiagoamaro/spree_cpf?branch=2-1-stable)
 [![Dependency Status](https://gemnasium.com/tiagoamaro/spree_cpf.png)](https://gemnasium.com/tiagoamaro/spree_cpf)
@@ -27,7 +28,7 @@ Set the preference in an initializer such as config/initializers/spree.rb:
 
 ```ruby
 Spree.config do |config|
-  config.add_cpf_to_ship_address = true # Default is false
+  config.ship_address_has_cpf = true # Default is false
 end
 ```
 
