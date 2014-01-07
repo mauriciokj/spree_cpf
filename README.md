@@ -50,4 +50,4 @@ Simply add this require statement to your spec_helper:
 require 'spree_cpf/factories'
 ```
 
-Copyright (c) 2013 Tiago Amaro, released under the MIT License
+Copyright (c) 2014 Tiago Amaro, released under the MIT License
