@@ -38,15 +38,9 @@ require 'spree/testing_support/url_helpers'
 # Requires factories defined in lib/spree_cpf/factories.rb
 require 'spree_cpf/factories'
 
-require 'capybara/poltergeist'
-
-Capybara.javascript_driver = :poltergeist
-Capybara.default_wait_time = 10
-
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   config.include Spree::TestingSupport::UrlHelpers
-  config.include Spree::TestingSupport::Preferences
 
   config.mock_with :rspec
   config.color = true
