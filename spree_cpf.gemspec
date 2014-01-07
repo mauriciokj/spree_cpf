@@ -2,7 +2,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_cpf'
-  s.version     = '2.1.2'
+  s.version     = '2.1.3'
   s.summary     = 'Spree extension that adds CPF to address field'
   s.description = 'Spree extension that adds CPF to address field'
   s.required_ruby_version = '>= 1.9.3'
