@@ -24,9 +24,11 @@ describe "Checkout" do
 
       after do
         click_button "Save and Continue"
-        page.should_not have_content("undefined method `promotion'")
+        page.should have_content("DELIVERY")
         click_button "Save and Continue"
-        page.should have_content("Shipping total $10.00")
+        page.should have_content("PAYMENT INFORMATION")
+        click_button "Save and Continue"
+        page.should have_content("Your order has been processed successfully")
       end
 
       describe 'ship address cpf' do
