@@ -15,6 +15,21 @@ describe "Checkout" do
       stock_location.stock_items.update_all(count_on_hand: 1)
     end
 
+    describe 'errors messages', js: true do
+      before(:each) do
+        Spree::Config[:ship_address_has_cpf] = true
+      end
+
+      it 'has a valid error message regarding CPF field' do
+        add_mug_and_checkout
+        fill_in_address type: 'bill', cpf: 'invalid cpf', fill_cpf: true
+        click_button "Save and Continue"
+
+        page.should have_content 'Bill address CPF is invalid'
+        page.should have_content 'Ship address CPF is invalid'
+      end
+    end
+
     context "full checkout", js: true do
       before do
         shipping_method.calculator.preferred_amount = 10
@@ -62,6 +77,7 @@ describe "Checkout" do
   end
 
   def fill_in_address(opts = {})
+    cpf = opts[:cpf] || "036.142.049-87"
     type = opts[:type] || 'bill'
     fill_cpf ||= opts[:fill_cpf]
 
@@ -70,7 +86,7 @@ describe "Checkout" do
     fill_in "#{address}_lastname", :with => "Bigg"
     fill_in "#{address}_address1", :with => "143 Swan Street"
     fill_in "#{address}_city", :with => "Richmond"
-    fill_in "#{address}_cpf", :with => "036.142.049-87" if fill_cpf
+    fill_in "#{address}_cpf", :with => cpf if fill_cpf
     select "United States of America", :from => "#{address}_country_id"
     select "Alabama", :from => "#{address}_state_id"
     fill_in "#{address}_zipcode", :with => "12345"
