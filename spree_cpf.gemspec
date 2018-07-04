@@ -1,7 +1,7 @@
 # encoding: UTF-8
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
-  s.name        = 'spree_documento'
+  s.name        = 'spree_cpfo'
   s.version     = '2.1.7'
   s.summary     = 'Spree extension that adds CPF to address field'
   s.description = 'Spree extension that adds CPF to address field'
@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.author    = 'Tiago Amaro'
   s.email     = 'tiagocis@gmail.com'
-  s.homepage  = 'https://github.com/tiagoamaro/spree_documento'
+  s.homepage  = 'https://github.com/tiagoamaro/spree_cpfo'
   s.license   = 'MIT'
 
   s.files       = `git ls-files`.split("\n")

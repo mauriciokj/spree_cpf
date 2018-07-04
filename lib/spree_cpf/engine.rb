@@ -2,7 +2,7 @@ module SpreeDocumento
   class Engine < Rails::Engine
     require 'spree/core'
     isolate_namespace Spree
-    engine_name 'spree_documento'
+    engine_name 'spree_cpfo'
 
     config.autoload_paths += %W(#{config.root}/lib)
 
@@ -11,7 +11,7 @@ module SpreeDocumento
       g.test_framework :rspec
     end
 
-    initializer "spree.spree_documento.preferences", :before => :load_config_initializers do |app|
+    initializer "spree.spree_cpfo.preferences", :before => :load_config_initializers do |app|
       Spree::AppConfiguration.class_eval do
         preference :ship_address_has_documento, :boolean, default: false
       end
