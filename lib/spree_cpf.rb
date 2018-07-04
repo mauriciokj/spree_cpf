@@ -1,2 +1,2 @@
 require 'spree_core'
-require 'spree_cpf/engine'
+require 'spree_documento/engine'
