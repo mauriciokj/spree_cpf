@@ -1,3 +1,3 @@
 Spree::Order.class_eval do
-  validates_with CpfValidator, on: :update
+  validates_with DocumentoValidator, on: :update
 end

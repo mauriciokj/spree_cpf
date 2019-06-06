@@ -17,12 +17,12 @@ describe "Checkout" do
 
     describe 'errors messages', js: true do
       before(:each) do
-        Spree::Config[:ship_address_has_cpf] = true
+        Spree::Config[:ship_address_has_documento] = true
       end
 
       it 'has a valid error message regarding CPF field' do
         add_mug_and_checkout
-        fill_in_address type: 'bill', cpf: 'invalid cpf', fill_cpf: true
+        fill_in_address type: 'bill', documento: 'invalid documento', fill_documento: true
         click_button "Save and Continue"
 
         page.should have_content 'Bill address CPF is invalid'
@@ -46,30 +46,30 @@ describe "Checkout" do
         page.should have_content("Your order has been processed successfully")
       end
 
-      describe 'ship address cpf' do
-        describe 'has cpf' do
+      describe 'ship address documento' do
+        describe 'has documento' do
           before do
-            Spree::Config[:ship_address_has_cpf] = true
+            Spree::Config[:ship_address_has_documento] = true
           end
 
-          it 'fill in ship address cpf, bill address cpf and checkout' do
+          it 'fill in ship address documento, bill address documento and checkout' do
             add_mug_and_checkout
-            fill_in_address type: 'bill', fill_cpf: true
+            fill_in_address type: 'bill', fill_documento: true
             uncheck 'Use Billing Address'
-            fill_in_address type: 'ship', fill_cpf: true
+            fill_in_address type: 'ship', fill_documento: true
           end
         end
 
-        describe 'does not have cpf' do
+        describe 'does not have documento' do
           before do
-            Spree::Config[:ship_address_has_cpf] = false
+            Spree::Config[:ship_address_has_documento] = false
           end
 
-          it 'fill in bill address cpf and checkout' do
+          it 'fill in bill address documento and checkout' do
             add_mug_and_checkout
-            fill_in_address type: 'bill', fill_cpf: true
+            fill_in_address type: 'bill', fill_documento: true
             uncheck 'Use Billing Address'
-            fill_in_address type: 'ship', fill_cpf: false
+            fill_in_address type: 'ship', fill_documento: false
           end
         end
       end
@@ -77,16 +77,16 @@ describe "Checkout" do
   end
 
   def fill_in_address(opts = {})
-    cpf = opts[:cpf] || "036.142.049-87"
+    documento = opts[:documento] || "036.142.049-87"
     type = opts[:type] || 'bill'
-    fill_cpf ||= opts[:fill_cpf]
+    fill_documento ||= opts[:fill_documento]
 
     address = "order_#{type}_address_attributes"
     fill_in "#{address}_firstname", :with => "Ryan"
     fill_in "#{address}_lastname", :with => "Bigg"
     fill_in "#{address}_address1", :with => "143 Swan Street"
     fill_in "#{address}_city", :with => "Richmond"
-    fill_in "#{address}_cpf", :with => cpf if fill_cpf
+    fill_in "#{address}_documento", :with => documento if fill_documento
     select "United States of America", :from => "#{address}_country_id"
     select "Alabama", :from => "#{address}_state_id"
     fill_in "#{address}_zipcode", :with => "12345"

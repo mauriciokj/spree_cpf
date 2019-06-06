@@ -5,6 +5,6 @@ en:
         spree/order:
           attributes:
             ship_address:
-              cpf_invalid: CPF is invalid
+              documento_invalid: Documento is invalid
             bill_address:
-              cpf_invalid: CPF is invalid
+              documento_invalid: Documento is invalid

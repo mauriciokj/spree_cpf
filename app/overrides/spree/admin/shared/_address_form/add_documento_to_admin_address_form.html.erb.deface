@@ -1,0 +1,7 @@
+<!-- insert_before "erb[silent]:contains('Spree::Config[:company]')" -->
+<% if type == 'billing' || Spree::Config[:ship_address_has_documento] %>
+  <div class="field <%= "#{type}-row" %>">
+    <%= f.label :documento, Spree.t(:documento) %>
+    <%= f.text_field :documento, :class => 'fullwidth' %>
+  </div>
+<% end %>
